@@ -54,10 +54,14 @@ async function run() {
         })
         app.get('/order', async (req, res) => {
             const email = req.query.email;
-            const query = {email};
+            const query = { email };
             const cursor = orderCollection.find(query);
             const order = await cursor.toArray();
             res.send(order)
+        })
+
+        app.get('/hero', (req, res) => {
+            res.send('hero meets heroku')
         })
 
     } finally {
